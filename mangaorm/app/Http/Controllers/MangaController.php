@@ -47,7 +47,7 @@ class MangaController extends Controller
      */
     public function show(Manga $manga)
     {
-        //
+        return view('manga', compact('manga'));
     }
 
     /**

@@ -11,21 +11,25 @@
 @section('contenu')
 <table class="table table-bordered table-striped">
     <thead>
-        <th>Id</th>
+        <th>#</th>
         <th>Titre</th>
-        <th>Prix</th>
         <th>Genre</th>
-        <th>Nom Dessinateur</th>
-        <th>Nom Scénariste</th>
+        <th></th>
+        <th></th> 
     </thead>
     @foreach($mangas as $manga)
         <tr>
             <td> {{ $manga->id }} </td>
             <td> {{ $manga->titre }} </td>
-            <td> {{ $manga->prix }} </td>
             <td> {{ $manga->genre }} </td>
-            <td> {{ $manga->nomDessinateur }} </td>
-            <td> {{ $manga->nomScenariste }} </td>
+            <td><a class="btn btn-primary" href="{{ route('mangas.show', $manga->id) }}">Voir</a></td>
+            <td>
+                <form action="{{ route('mangas.destroy', $manga->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
+            </td>
         </tr>
     @endforeach
 </table>
