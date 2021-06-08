@@ -9,6 +9,15 @@
 @endsection
 
 @section('contenu')
+
+    @if(session()->has('info'))
+        <div class="car text-white bg-success mb-3" style="max-width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">{{ session('info') }}</p>
+            </div>
+        </div>
+    @endif
+
 <table class="table table-bordered table-striped">
     <thead>
         <th>#</th>

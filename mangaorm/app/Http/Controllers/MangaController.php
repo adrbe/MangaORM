@@ -81,6 +81,7 @@ class MangaController extends Controller
      */
     public function destroy(Manga $manga)
     {
-        //
+        $manga->delete();
+        return back()->with('info', 'Le manga a bien été supprimé de la base de données');
     }
 }
