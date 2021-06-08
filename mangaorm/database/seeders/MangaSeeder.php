@@ -13,6 +13,6 @@ class MangaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Manga::factory(10)->create();
     }
 }
